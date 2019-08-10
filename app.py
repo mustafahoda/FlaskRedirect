@@ -13,6 +13,7 @@ def generate():
     if request.method == 'POST':
         url = OriginalURL(request.form)
         phrase = url.create_funny_phrase()
+        db_write = url.write_generated_phrase_to_db()
 
     return render_template('phrase.html', phrase=phrase)
 
