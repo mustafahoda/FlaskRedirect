@@ -5,9 +5,10 @@
     <title>This is the home page</title>
 </head>
 <body>
-    <h1>Home Page DUDE!</h1>
-    <form>
-        <input type="text"></input>
+    <h1>Enter a URL that you'd like to make funny!</h1>
+    <form method="POST" action="http://localhost:5000/generate">
+        <input name="url" type="text"></input>
+        <button type="submit">Make my funny!</button>
     </form>
 
     <h2> {{ variable }} </h2>

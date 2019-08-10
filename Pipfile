@@ -10,6 +10,7 @@ rq = "*"
 pymongo = "*"
 random-word = "*"
 flask = "*"
+randomwords = "*"
 
 [requires]
 python_version = "3.6"
