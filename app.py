@@ -11,8 +11,9 @@ def index():
 def generate():
 
     if request.method == 'POST':
-        url = OriginalURL(request.form)
+        url = OriginalURL(request.form['url'])
         phrase = url.create_funny_phrase()
+        db_count = url.does_url_already_exist()
         db_write = url.write_generated_phrase_to_db()
 
     return render_template('phrase.html', phrase=phrase)
