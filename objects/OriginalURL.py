@@ -27,10 +27,22 @@ class OriginalURL(MongoClient):
 
         return phrase
 
+    def url_refactor(self):
+
+        if self.url[:6] != 'http://':
+
+            if self.url[:10] != 'http://www.':
+                self.url = 'http://www.' + self.url
+
+            else:
+                self.url = 'http://' + self.url
+
     def write_generated_phrase_to_db(self):
 
+        self.url_refactor()
+
         if self.does_url_already_exist():
-            print(f"The url {self.url} already exists in the database. Can't write dublicate")
+            print(f"The url {self.url} already exists in the database. Can't write duplicate")
 
         else:
             data = {

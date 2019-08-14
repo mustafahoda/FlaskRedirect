@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from objects.OriginalURL import OriginalURL
+from objects.GeneratedPhrase import Phrase
 
 app = Flask(__name__)
 
@@ -17,6 +18,12 @@ def generate():
         db_write = url.write_generated_phrase_to_db()
 
     return render_template('phrase.html', phrase=phrase)
+
+@app.route('/route_to/<phrase>')
+def route_to(phrase):
+    phrase_object = Phrase(phrase)
+    redirect_url = phrase_object.get_url()
+    return redirect(redirect_url)
 
 if __name__ == "__main__":
     app.run()
