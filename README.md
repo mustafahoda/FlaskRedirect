@@ -18,6 +18,8 @@ The funny phrase and it's corresponding URL is written to a MongoDB Database run
 
 ## Installation
 
+**You need to have MongoDB installed on your machine to keep track of url and their phrases.**
+
 pipenv will install all required dependencies onto your machine
 
 ```bash
